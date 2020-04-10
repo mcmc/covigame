@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>CoViDynamics -- What would YOU do? -- Try it!</title>
+    <!-- og:image - a bunch of stuff to try to make a preview image appear in whatsapp etc., but doesn't work -->
+    <meta name="CoViD Policy Simulator" content="Implement your own social-distancing policy and see what happens!" />
+    <meta property="og:title" content="CoViD-19 Isolation Policy Simulator" />
+    <meta property="og:url" content="https://co2.ini.uzh.ch/CoViD-19/CoViDynamics.html" />
+    <meta property="og:description" content="CoViD-19 Social Distancing Policy Simulator">
+    <meta property="og:image" content="screenshot.png">
+    <!-- favicon - the 16x16 icon by the http address in the browser -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!--script type="text/javascript" src="http://dmitrybaranovskiy.github.io/raphael/raphael.js"></script-->
+    <script type="text/javascript" src="raphael.js"></script>
+    <script type="text/javascript" src="raphael-additions.js"></script>
+  </head>
+  <body>
+    <center>
+    <h1>You're in charge!</h1>
+    <h3>Save your population and your economy!</h3>
+    <p>Drag the magenta spot up and down to control the transmission factor.</p>
+    <div id="cvpaper"></div>
+    <!-- that's the html element where the game is -->
+    <script type="text/javascript" src="covigame.js"></script>
+    <!-- that's the html element where the game is -->
+    
+    
+    <h2>Try to minimize deaths and minimize economic damage.</h2>
+
+    <p> You are the leader of your community.
+    <br> You can decided how much social isolation to enforce, whether to cancel events,
+    <br> whether people should wear masks, whether they should shake hands vs. bow, and so on.
+    <br> All of this turns into a single number: The <b>transmission factor</b>.
+    </p>
+    <p> The <b>transmission factor</b> is the average number of other
+    <br> people that an infected citizen will transmit the virus to,
+    <br> before they develop symptoms themself and either
+    <br> self-isolate (for mild to "like-a-bad-flu" cases)
+    <br> or get hospitalized (severe cases).
+    </p>
+    <p> (Of course,
+    <br> many people are asymptomatic,
+    <br> and will fail to self-isolate,
+    <br> thus raising this average.)
+    </p>
+    <p> This simulation assumes you have dictatorial power over your community,
+    <br> and lets you control the <b>transmission factor</b> directly.
+    </p>
+    <p> You can decide whether to focus more on deaths or more on the economy.
+    <br> Either way, as you practice, you will see why you need social distancing.
+    </p>
+
+    <h2>"Herd immunity" and the dotted yellow line</h2>
+
+    <p> A dotted yellow line is visible above.
+    <br> The farther the virus ball is above this region, the faster the epidemic will grow.
+    <br> The farther the virus ball is below this region, the faster the epidemic will shrink.
+    <br> If you are very close to the line, the epidemic will stay about the same size,
+    <br> spreading to new people at the same rate that people recover at.
+    </p>
+    <p> When the transmission factor is normal, then herd immunity occurs
+    <br> at the point where the green lines crosses the yellow line.
+    </p>
+
+    <h5>
+    Virus image is modified from <a href="https://commons.wikimedia.org/wiki/File:3D_medical_animation_coronavirus_structure_vie.png">Wikimedia Commons</a>
+    </h5>
+    </center>
+  </body>
+</html>
