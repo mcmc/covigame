@@ -30,8 +30,8 @@
     <h2>Try to minimize deaths and minimize economic damage.</h2>
 
     <p> You are the leader of your community.
-    <br> You can decided how much social isolation to enforce, whether to cancel events,
-    <br> whether people should wear masks, whether they should shake hands vs. bow, and so on.
+    <br> You can decide how much social isolation to enforce, whether to cancel events,
+    <br> whether people should wear masks, whether they should shake hands, and so on.
     <br> All of this turns into a single number: The <b>transmission factor</b>.
     </p>
     <p> The <b>transmission factor</b> is the average number of other
@@ -40,28 +40,59 @@
     <br> self-isolate (for mild to "like-a-bad-flu" cases)
     <br> or get hospitalized (severe cases).
     </p>
-    <p> (Of course,
-    <br> many people are asymptomatic,
-    <br> and will fail to self-isolate,
-    <br> thus raising this average.)
+    <p> (Of course, many people are asymptomatic and so
+    <br> will fail to self-isolate, thus raising this average.)
     </p>
-    <p> This simulation assumes you have dictatorial power over your community,
-    <br> and lets you control the <b>transmission factor</b> directly.
+    <p> Instead of trying to model social behavior, this simulation
+    <br> just lets you control the <b>transmission factor</b> directly.
     </p>
     <p> You can decide whether to focus more on deaths or more on the economy.
     <br> Either way, as you practice, you will see why you need social distancing.
     </p>
+    
+    <h2>What is the purpose of this game?  Do you not take it seriously?</h2>
 
+    <p> We take it very seriously.
+    <br> We have been shocked at the degree to which people (including ourselves)
+    <br> did not understand much at all about the way social distancing measures do or don't help,
+    <br> what herd immunity is and isn't, what sort of future we can expect under various policy approaches.
+    </p>
+    <p> The purpose of the game is to help ourselves and other people understand how these factors interact.
+    </p>
+    <p> For example, if you get good at the game, you will see that your strategy does not depend much
+    <br> at all on the exact parameters. So even though we don't have good data yet on the parameters
+    <br> of this virus, we can still implement a close-to-optimal policy by carefully monitoring the
+    <br> state of our medical system and adjusting the social distancing measures accordingly.
+    </p>
+    
+    <h2>Epidemic vs. Pandemic</h2>
+    
+    <p>The coronavirus pandemic is a pandemic because it is spread over the world.
+    <br>It consists of many many local epidemics.  This games models such an epidemic.
+    <br>(A future version might model the pandemic nature, with many localized epidemics.)
+    </p>
+    
     <h2>"Herd immunity" and the dotted yellow line</h2>
 
     <p> A dotted yellow line is visible above.
     <br> The farther the virus ball is above this region, the faster the epidemic will grow.
     <br> The farther the virus ball is below this region, the faster the epidemic will shrink.
-    <br> If you are very close to the line, the epidemic will stay about the same size,
-    <br> spreading to new people at the same rate that people recover at.
+    <br> If you are very close to the line, the epidemic will stay about the same size.
+    <br> (Staying the same size means it spreads to new people at the same rate that people recover at.)
     </p>
-    <p> When the transmission factor is normal, then herd immunity occurs
+    <p> When the transmission factor is normal (when the height of the
+    <br> green curve is where it started), then herd immunity occurs
     <br> at the point where the green lines crosses the yellow line.
+    </p>
+    <p> Herd immunity is not a strategy.  It is a phenomenon.
+    <br> (Just like the pandemic itself is not a strategy.  It is a phenomenon.)
+    <br> Herd immunity (perhaps thanks to a vaccine) is the only way that an
+    <br> epidemic can end, unless social-distancing measures are kept in place.
+    </p>
+    <p> (It can also end by eradicating the virus, but that is practically impossible
+    <br> once an outbreak stops being contained, as is the case here.  Even when there
+    <br> is a vaccine, it is still very difficult. We have been trying to eradicate the
+    <br> poliovirus for decades, but immunity is still achieved via vaccines.)
     </p>
 
     <h5>
