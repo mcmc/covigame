@@ -20,11 +20,11 @@
     <center>
     <h1>You're in charge!</h1>
     <h3>Save your population and your economy!</h3>
-    <p>Drag the magenta spot up and down to control the transmission factor.</p>
+    <p>Drag the magenta spot up and down to control how the virus rolls through the population.</p>
     <div id="cvpaper"></div>
     <!-- that's the html element where the game is -->
     <script type="text/javascript" src="covigame.js"></script>
-    <!-- that's the html element where the game is -->
+    <!-- the script must come after the element, it doesn't wait for onload() -->
     
     
     <h2>Try to minimize deaths and minimize economic damage.</h2>
@@ -32,22 +32,12 @@
     <p> You are the leader of your community.
     <br> You can decide how much social isolation to enforce, whether to cancel events,
     <br> whether people should wear masks, whether they should shake hands, and so on.
-    <br> All of this turns into a single number: The <b>transmission factor</b>.
-    </p>
-    <p> The <b>transmission factor</b> is the average number of other
-    <br> people that an infected citizen will transmit the virus to,
-    <br> before they develop symptoms themself and either
-    <br> self-isolate (for mild to "like-a-bad-flu" cases)
-    <br> or get hospitalized (severe cases).
-    </p>
-    <p> (Of course, many people are asymptomatic and so
-    <br> will fail to self-isolate, thus raising this average.)
-    </p>
-    <p> Instead of trying to model social behavior, this simulation
-    <br> just lets you control the <b>transmission factor</b> directly.
+    <br> All of this turns into a single number, the <b>transmission factor</b>, which you control.
     </p>
     <p> You can decide whether to focus more on deaths or more on the economy.
-    <br> Either way, as you practice, you will see why you need social distancing.
+    <br> Either way, as you practice, you will see why you need to get the transmission
+    <br> factor down.  Whether you do this through social distancing, contact tracing,
+    <br> or other measures is up to you, and is not modeled by the game.
     </p>
     
     <h2>What is the purpose of this game?  Do you not take it seriously?</h2>
@@ -55,7 +45,7 @@
     <p> We take it very seriously.
     <br> We have been shocked at the degree to which people (including ourselves)
     <br> did not understand much at all about the way social distancing measures do or don't help,
-    <br> what herd immunity is and isn't, what sort of future we can expect under various policy approaches.
+    <br> what herd immunity is and isn't, and what sort of future we can expect under various policy approaches.
     </p>
     <p> The purpose of the game is to help ourselves and other people understand how these factors interact.
     </p>
@@ -65,11 +55,67 @@
     <br> state of our medical system and adjusting the social distancing measures accordingly.
     </p>
     
+    <h2>The Transmission Factor</h2>
+
+    <p> The <b>transmission factor</b> is the average number of other people that an infected citizen
+    <br> will transmit the virus to, before the infected citizen either (1) develops an immune response
+    <br> and defeats the infection without showing symptoms, (2) develops symptoms and self-isolates
+    <br> (for mild to "like-a-bad-flu" cases), or (3) develops symptoms and gets hospitalized (severe cases).
+    </p>
+    <p> The transmission factor is the average for all people, including all those 3 types of cases.
+    </p>
+    <p> If the virus is transmitted to somebody who already had the virus, the
+    <br> target is considered to be immune, and does not become contagious again.
+    </p>
+    <p> So if some fraction of the population is immune, then the virus will only be able to infect a fraction of
+    <br> the people it is transmitted to.  This is effectively like having a lower transmission factor.  In the game, this
+    <br> corresponds to how the green line maps to lower transmission factors (grey lines) as you move to the right.
+    </p>
+    
+    <h2>What does the curved green line represent?</h2>
+
+    <p> The curved green line is to help with the intuition that an epidemic is kind of like a ball rolling down a hill.
+    <br> The steeper the hill, the faster the ball will speed up.
+    <br> The ball is kind of like a bean-bag: If the hill is not steep enough, the ball will slow down and stop.
+    </p>
+    <p> The green curve is steeper on the left, because the virus spreads more easily when nobody has caught the virus yet.
+    <br> Above the yellow line, the curve is steep enough to make the ball roll faster.
+    <br> Below the yellow line, the curve is not steep enough and the ball will slow down.
+    </p>
+    <p> The height of the left-hand end of the curve, where the magenta dot is,
+    <br> represents the transmission factor.
+    <br> Really, it is not the height that matters, but the angle to the endpoint, as indicated by the grey lines.
+    <br> The gray line you are currently at determines the rate at which the epidemic will grow or shrink.
+    <br> Your position is shown by the little green dot under the rolling virus ball.
+    </p>
+    <p> The "physics" of the ball follows "epidemic physics", which is slightly different from
+    <br> "gravity physics", but still the intuition is close enough for it to be a useful analogy.
+    <br> The difference is just that the speed of the ball is given by the vertical extent of the
+    <br> "trail" of red people behind the ball, rather than by any physical "momentum", so the
+    <br> speed of the ball can be changed at any time, just by changing the transmission factor.
+    </p>
+    
+    <h2>What do the colors of people mean?</h2>
+
+    <p> Purple people have not yet contracted the virus.
+    <br> Red people contracted the virus recently and are contagious.
+    <br> Blue people have recovered from the virus and are no longer contagious.
+    <br> Note that red people may or may not show symptoms.  Only a fraction of the red people need to be
+    <br> hospitalized, and an even smaller fraction of them die.  These numbers are shown only in the charts.
+    </p>
+    
     <h2>Epidemic vs. Pandemic</h2>
     
     <p>The coronavirus pandemic is a pandemic because it is spread over the world.
-    <br>It consists of many many local epidemics.  This games models such an epidemic.
-    <br>(A future version might model the pandemic nature, with many localized epidemics.)
+    <br>It consists of many many local epidemics.  This game models such an epidemic.
+    </p>
+    <p> When there are different sub-populations that have little interaction with each other
+    <br> (and perhaps different social distancing behavior), then a more complex model is needed.
+    <br> This is typically due to geographical/cultural separation, but can also correspond to different
+    <br> subpopulations in a single society, if these subpopulations have limited contact with each other.
+    </p>
+    </p> This game models a single population in which the individual
+    <br> variation in behavior is effectively random across the population.
     </p>
     
     <h2>"Herd immunity" and the dotted yellow line</h2>
@@ -77,22 +123,34 @@
     <p> A dotted yellow line is visible above.
     <br> The farther the virus ball is above this region, the faster the epidemic will grow.
     <br> The farther the virus ball is below this region, the faster the epidemic will shrink.
-    <br> If you are very close to the line, the epidemic will stay about the same size.
+    <br> If you are close to the line, the epidemic will stay about the same size.
     <br> (Staying the same size means it spreads to new people at the same rate that people recover at.)
     </p>
-    <p> When the transmission factor is normal (when the height of the
-    <br> green curve is where it started), then herd immunity occurs
-    <br> at the point where the green lines crosses the yellow line.
+    <p> When the transmission factor is normal (yes, many things can influence what you consider to be
+    <br> "normal"), then herd immunity occurs at the point where the green line crosses the yellow line.
+    </p>
+    <p> If a population has "herd immunity", it doesn't mean the people are all immune.  People can still catch the disease.
+    <br> It just means that any outbreaks that do occur will have a limited spread, and the outbreak will end itself naturally.
+    <br> The higher the level of herd immunity, the quicker the flare-ups will die back down.
     </p>
     <p> Herd immunity is not a strategy.  It is a phenomenon.
     <br> (Just like the pandemic itself is not a strategy.  It is a phenomenon.)
-    <br> Herd immunity (perhaps thanks to a vaccine) is the only way that an
-    <br> epidemic can end, unless social-distancing measures are kept in place.
+    <br> The point at which this phenomenon occurs depends on the transmission factor,
+    <br> which depends both on properties of the virus <i>and on societal behavior</i>.
+    <br> For example it will occur at a different point in a culture where people are very social and physically
+    <br> close, than in a culture where people meet rarely and remain physically distant even when they meet.
     </p>
-    <p> (It can also end by eradicating the virus, but that is practically impossible
-    <br> once an outbreak stops being contained, as is the case here.  Even when there
-    <br> is a vaccine, it is still very difficult. We have been trying to eradicate the
-    <br> poliovirus for decades, but immunity is still achieved via vaccines.)
+    <p> Herd immunity (perhaps thanks to a vaccine) is the only way that an epidemic can end, unless
+    <br> transmission-reduction measures are kept in place, such as social distancing or contact tracing.
+    <br> Even then, you could argue that these measures simply make herd-immunity happen sooner.
+    </p>
+    <p> (The epidemic can also end by eradicating the virus, but that is practically impossible
+    <br> once an outbreak stops being contained, as is the case here.  Even when there is a
+    <br> vaccine, it is still very difficult. We have been trying to eradicate the poliovirus
+    <br> for decades, but immunity is still achieved via herd immunity, via vaccines.)
+    </p>
+    <p> In this game, herd immunity is the phenomenon that the virus ball slows down and
+    <br> stops <i>before</i> hitting 100%, even when the magenta dot on the left is above the line.
     </p>
 
     <h5>
